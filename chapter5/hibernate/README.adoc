@@ -1,0 +1,11 @@
+= Quarkus and Hibernate example
+
+An example application featuring a One-To-Many relation between the table Customer and Orders
+
+== How to run it
+
+[source,shell]
+----
+$ mvn clean compile test
+----
+
