@@ -7,4 +7,6 @@ target/
 *.iml
 .idea/
 .eclipse
-
+.dockerignore
+.pom.xml.swp
+.mvn/*
