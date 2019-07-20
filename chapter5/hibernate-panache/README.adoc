@@ -1,0 +1,20 @@
+= Quarkus and Hibernate Panache example
+
+An example application featuring a One-To-Many relation between the table Customer and Orders
+
+== How to run it
+
+* Start the Database:
+
+[source,shell]
+----
+$ sudo ./db.sh
+----
+
+* Launch the application:
+
+[source,shell]
+----
+$ mvn clean compile test
+----
+

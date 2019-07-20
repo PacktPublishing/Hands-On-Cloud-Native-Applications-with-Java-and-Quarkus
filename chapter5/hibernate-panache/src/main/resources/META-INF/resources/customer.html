@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>CRUD Mission - Quarkus</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"/>
+    <style>
+        input[type=number] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            -webkit-transition: .5s;
+            transition: .5s;
+            outline: 0;
+            font-family: 'Open Sans', serif;
+        }
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("customerManagement", []);
+      //Controller Part
+      app.controller("customerManagementController", function ($scope, $http) {
+        //Initialize page with default data which is blank in this example
+        $scope.customers = [];
+        $scope.form = {
+          id: -1,
+          name: "",
+          surname: ""
+        };
+        //Now load the data from server
+        _refreshPageData();
+        //HTTP POST/PUT methods for add/edit customers
+        $scope.update = function () {
+          var method = "";
+          var url = "";
+          var data = {};
+          if ($scope.form.id == -1) {
+            //Id is absent so add customers - POST operation
+            method = "POST";
+            url = '/customers';
+            data.name = $scope.form.name;
+            data.surname = $scope.form.surname;
+          } else {
+            //If Id is present, it's edit operation - PUT operation
+            method = "PUT";
+            url = '/customers';
+           // url = '/customers/' + $scope.form.id + "/" +$scope.form.name;
+            data.id = $scope.form.id;
+            data.name = $scope.form.name;
+            data.surname = $scope.form.surname;
+          }
+          $http({
+            method: method,
+            url: url,
+            data: angular.toJson(data),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then(_success, _error);
+        };
+        //HTTP DELETE- delete customer by id
+        $scope.remove = function (customer) {
+
+          $http({
+            method: 'DELETE',
+            url: '/customers+'?id='+customer.id
+          }).then(_success, _error);
+        };
+        //In case of edit customers, populate form with customer data
+        $scope.edit = function (customer) {
+          $scope.form.name = customer.name;
+          $scope.form.surname = customer.surname;
+          $scope.form.id = customer.id;
+        };
+          /* Private Methods */
+        //HTTP GET- get all customers collection
+        function _refreshPageData() {
+          $http({
+            method: 'GET',
+            url: '/customers'
+          }).then(function successCallback(response) {
+            $scope.customers = response.data;
+          }, function errorCallback(response) {
+            console.log(response.statusText);
+          });
+        }
+        function _success(response) {
+          _refreshPageData();
+          _clearForm()
+        }
+        function _error(response) {
+          alert(response.data.message || response.statusText);
+        }
+        //Clear the form
+        function _clearForm() {
+          $scope.form.name = "";
+          $scope.form.surname = "";
+          $scope.form.id = -1;
+        }
+      });
+    </script>
+</head>
+<body ng-app="customerManagement" ng-controller="customerManagementController">
+
+<div class="container">
+    <h1>CRUD Example</h1>
+
+    </p>
+
+    <h3>Add/Edit a customer</h3>
+    <form ng-submit="update()">
+        <div class="row">
+            <div class="col-6"><input type="text" placeholder="Name" ng-model="form.name" size="60"/></div>
+            <div class="col-6"><input type="text" placeholder="Surname" ng-model="form.surname" size="60"/></div>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+
+    <h3>customer List - PLEASE ADD GRID HERE</h3>
+    <div class="row">
+        <div class="col-2">Name</div>
+        <div class="col-2">Surname</div>
+    </div>
+    <div class="row" ng-repeat="customer in customers">
+        <div class="col-2">{{ customer.name }}</div>
+        <div class="col-2">{{ customer.surname }}</div>
+        <div class="col-8"><a ng-click="edit( customer )" class="btn">Edit</a> <a ng-click="remove( customer )" class="btn">Remove</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
