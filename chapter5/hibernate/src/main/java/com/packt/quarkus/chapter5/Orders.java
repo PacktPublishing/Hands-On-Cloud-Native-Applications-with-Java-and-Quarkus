@@ -1,8 +1,5 @@
 package com.packt.quarkus.chapter5;
-<<<<<<< HEAD
 
-=======
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Entity;
@@ -34,16 +31,22 @@ public class Orders {
     @Column(length = 40)
     public String item;
 
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "id=" + id +
+                ", item='" + item + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
     @Column
     public Long price;
 
     @ManyToOne
-<<<<<<< HEAD
     @JoinColumn(name = "customer_id")
-=======
-    @JoinColumn(name="customer_id")
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
     public Customer customer;
+
 
     public Customer getCustomer() {
         return customer;
@@ -76,16 +79,5 @@ public class Orders {
     public void setPrice(Long price) {
         this.price = price;
     }
-<<<<<<< HEAD
 
-    @java.lang.Override
-    public java.lang.String toString() {
-        return "Orders{" +
-                "id=" + id +
-                ", item='" + item + '\'' +
-                ", price=" + price +
-                '}';
-    }
-=======
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
 }
