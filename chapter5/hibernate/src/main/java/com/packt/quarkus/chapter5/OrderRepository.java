@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.ws.rs.WebApplicationException;
 import java.util.List;
-import javax.ws.rs.QueryParam;
 import javax.persistence.Query;
 
 
@@ -16,24 +15,16 @@ public class OrderRepository {
     @Inject
     EntityManager entityManager;
 
-
-
     public List<Orders> findAll(Long customerId) {
 
-<<<<<<< HEAD
-      return  (List<Orders>) entityManager.createNamedQuery("Orders.findAll")
-=======
-      return (List<Orders>) entityManager.createNamedQuery("Orders.findAll")
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
+        return  (List<Orders>) entityManager.createNamedQuery("Orders.findAll")
                 .setParameter("customerId", customerId)
                 .getResultList();
-
     }
 
     public Orders findOrderById(Long id) {
 
         Orders order = entityManager.find(Orders.class, id);
-
         if (order == null) {
             throw new WebApplicationException("Order with id of " + id + " does not exist.", 404);
         }
@@ -47,17 +38,13 @@ public class OrderRepository {
     }
     @Transactional
     public void createOrder(Orders order, Customer c) {
-
         order.setCustomer(c);
         entityManager.persist(order);
 
     }
     @Transactional
     public void deleteOrder(Long orderId) {
-
         Orders o = findOrderById(orderId);
         entityManager.remove(o);
-
-
     }
 }
