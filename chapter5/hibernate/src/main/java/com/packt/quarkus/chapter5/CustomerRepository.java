@@ -2,7 +2,6 @@ package com.packt.quarkus.chapter5;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.ws.rs.WebApplicationException;
