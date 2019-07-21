@@ -17,11 +17,7 @@ import java.util.List;
 @Cacheable
 @Entity
 @NamedQuery(name = "Customers.findAll",
-<<<<<<< HEAD
         query = "SELECT c FROM Customer c ORDER BY c.id",
-=======
-        query = "SELECT c FROM Customer c ORDER BY c.name",
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
         hints = @QueryHint(name = "org.hibernate.cacheable", value = "true") )
 public class Customer {
     @Id
@@ -61,7 +57,6 @@ public class Customer {
         this.surname = surname;
     }
 
-<<<<<<< HEAD
     @java.lang.Override
     public java.lang.String toString() {
         return "Customer{" +
@@ -72,8 +67,6 @@ public class Customer {
                 '}';
     }
 
-=======
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
     @OneToMany(mappedBy = "customer")
     public List<Orders> orders;
 }
