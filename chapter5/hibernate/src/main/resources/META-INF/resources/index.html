@@ -2,13 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>CRUD Mission - Quarkus</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"/>
-<<<<<<< HEAD
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen" />
-=======
+    <title>CRUD Example - Quarkus</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script type="text/javascript">
       var app = angular.module("customerManagement", []);
@@ -102,11 +97,9 @@
 <body ng-app="customerManagement" ng-controller="customerManagementController">
 
 <div class="divTable blueTable">
-<<<<<<< HEAD
+
     <h1>Quarkus Hibernate Example</h1>
-=======
-    <h1>Quarkus CRUD Example</h1>
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
+
     <h2>Enter Customer:</h2>
     <form ng-submit="update()">
         <div class="divTableRow">
@@ -130,11 +123,9 @@
             <div class="divTableCell">{{ customer.name }}</div>
             <div class="divTableCell">{{ customer.surname }}</div>
             <div class="divTableCell">
-<<<<<<< HEAD
+
                 <a ng-href="/order.html?customerId={{ customer.id }}&customerName={{ customer.name }}&customerSurname={{ customer.surname }}" class="myButton">Orders</a>
-=======
-                <a ng-href="/order.html?customerId={{ customer.id }}" class="myButton">Add Order</a>
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
+
                 <a ng-click="edit( customer )" class="myButton">Edit</a>
                 <a ng-click="remove( customer )" class="myButton">Remove</a>
             </div>
