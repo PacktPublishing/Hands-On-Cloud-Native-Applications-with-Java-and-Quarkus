@@ -22,10 +22,7 @@ public class CustomerEndpoint {
 
     @POST
     public Response create(Customer customer) {
-<<<<<<< HEAD
-        System.out.println("Creare customer "+customer);
-=======
->>>>>>> fc099194d947fb486088b902a424566c9b9fa3a7
+
         customerRepository.createCustomer(customer);
         return Response.status(201).build();
 
