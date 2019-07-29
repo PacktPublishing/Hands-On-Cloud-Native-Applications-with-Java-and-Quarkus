@@ -55,6 +55,7 @@ public class CustomerEndpointTest {
                 .statusCode(204);
 
         // Test GET for Order #1
+        //  RESTEASY008205: JSON Binding serialization error java.lang.StackOverflowError
         given()
                 .when().get("/orders?customerId=1")
                 .then()
@@ -67,7 +68,7 @@ public class CustomerEndpointTest {
                 .then()
                 .statusCode(204);
 
-
+ 
 
     }
 }
