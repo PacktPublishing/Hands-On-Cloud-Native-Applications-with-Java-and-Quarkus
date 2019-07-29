@@ -7,7 +7,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.ws.rs.WebApplicationException;
 import javax.transaction.Transactional;
+
 import io.quarkus.panache.common.Sort;
+
 @ApplicationScoped
 public class CustomerRepository {
 
@@ -16,12 +18,10 @@ public class CustomerRepository {
 
         return Customer.listAll(Sort.by("id"));
 
-
     }
 
     public Customer findCustomerById(Long id) {
         Customer customer = Customer.findById(id);
-
 
 
         if (customer == null) {
@@ -29,6 +29,7 @@ public class CustomerRepository {
         }
         return customer;
     }
+
     @Transactional
     public void updateCustomer(Customer customer) {
 
@@ -36,12 +37,14 @@ public class CustomerRepository {
         customerToUpdate.name = customer.name;
         customerToUpdate.surname = customer.surname;
     }
+
     @Transactional
     public void createCustomer(Customer customer) {
 
         customer.persist();
 
     }
+
     @Transactional
     public void deleteCustomer(Long customerId) {
 

@@ -31,6 +31,7 @@ public class OrderRepository {
     }
     @Transactional
     public void updateOrder(Orders order) {
+
         Orders orderToUpdate = findOrderById(order.id);
         orderToUpdate.item = order.item;
         orderToUpdate.price = order.price;

@@ -25,7 +25,6 @@ public class OrderEndpoint {
     @POST
     @Path("/{customer}")
     public Response create(Orders order, @PathParam("customer") Long customerId) {
-        System.out.println("Order is "+order);
 
         Customer c = customerRepository.findCustomerById(customerId);
 
@@ -36,14 +35,12 @@ public class OrderEndpoint {
 
     @PUT
     public Response update(Orders order) {
-        System.out.println("Updating order id "+order);
         orderRepository.updateOrder(order);
         return Response.status(204).build();
     }
     @DELETE
     @Path("/{order}")
     public Response delete(@PathParam("order") Long orderId) {
-        System.out.println("Deleting order id "+orderId);
         orderRepository.deleteOrder(orderId);
         return Response.status(204).build();
     }
