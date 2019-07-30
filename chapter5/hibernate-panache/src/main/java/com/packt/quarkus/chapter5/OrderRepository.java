@@ -1,5 +1,7 @@
 package com.packt.quarkus.chapter5;
 
+import io.quarkus.panache.common.Sort;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -16,7 +18,7 @@ public class OrderRepository {
 
     public List<Orders> findAll(Long customerId) {
 
-        return Orders.list("id", customerId);
+        return Orders.list("customer.id", Sort.by("item"), customerId);
 
     }
 

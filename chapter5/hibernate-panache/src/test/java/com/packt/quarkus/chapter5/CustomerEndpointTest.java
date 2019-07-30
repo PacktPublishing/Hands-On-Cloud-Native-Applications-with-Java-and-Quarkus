@@ -68,7 +68,7 @@ public class CustomerEndpointTest {
                 .then()
                 .statusCode(204);
 
- 
+
 
     }
 }

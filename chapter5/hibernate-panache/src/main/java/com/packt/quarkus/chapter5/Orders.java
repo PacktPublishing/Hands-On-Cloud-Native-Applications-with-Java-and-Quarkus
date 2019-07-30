@@ -16,8 +16,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 @Entity
-@NamedQuery(name = "Orders.findAll",
-        query = "SELECT o FROM Orders o WHERE o.customer.id = :id ORDER BY o.item")
 public class Orders extends PanacheEntityBase {
     @Id
     @SequenceGenerator(
