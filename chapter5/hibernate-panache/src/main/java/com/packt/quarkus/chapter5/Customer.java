@@ -1,5 +1,6 @@
 package com.packt.quarkus.chapter5;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,12 +14,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 @Cacheable
 @Entity
-@NamedQuery(name = "Customers.findAll",
-        query = "SELECT c FROM Customer c ORDER BY c.id",
-        hints = @QueryHint(name = "org.hibernate.cacheable", value = "true") )
 public class Customer extends PanacheEntityBase {
     @Id
     @SequenceGenerator(
@@ -34,7 +34,7 @@ public class Customer extends PanacheEntityBase {
     @Column(length = 40)
     public String surname;
 
-
+    @JsonbTransient
     @OneToMany(mappedBy = "customer")
     public List<Orders> orders;
 }

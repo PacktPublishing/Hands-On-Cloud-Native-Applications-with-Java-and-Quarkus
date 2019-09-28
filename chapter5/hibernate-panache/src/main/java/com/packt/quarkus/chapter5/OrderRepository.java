@@ -16,10 +16,14 @@ import javax.persistence.Query;
 public class OrderRepository {
 
 
+    @Inject
+    EntityManager entityManager;
+
+
     public List<Orders> findAll(Long customerId) {
 
-        return Orders.list("customer.id", Sort.by("item"), customerId);
-
+        List l = Orders.list("customer.id", Sort.by("item"), customerId);
+        return l;
     }
 
     public Orders findOrderById(Long id) {

@@ -1,5 +1,6 @@
 package com.packt.quarkus.chapter5;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Entity;
@@ -7,14 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Column;
-import javax.persistence.NamedQuery;
-
-import javax.persistence.Cacheable;
-
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 @Entity
 public class Orders extends PanacheEntityBase {
     @Id
@@ -34,7 +30,7 @@ public class Orders extends PanacheEntityBase {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonbTransient
     public Customer customer;
-
 
 }
