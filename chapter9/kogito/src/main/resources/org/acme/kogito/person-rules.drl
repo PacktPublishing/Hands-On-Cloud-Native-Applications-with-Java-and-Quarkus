@@ -11,7 +11,7 @@ rule "product"
 		productObject.setDiscount(15);
 		System.out.println("Product going to expiry soon!!!");
 	end
-rule "product"
+rule "product2"
 	when
 		productObject: Product(date.getCurrentTime() - date.getTime() < 2)
 	then
