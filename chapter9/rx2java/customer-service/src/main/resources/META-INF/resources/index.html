@@ -70,7 +70,7 @@
           $http({
             method: 'GET',
             url: SERVER_URL+'/writefile'
-          }).then(_successWindow, _error);
+          }).then(_successStage, _error);
         };
 
          $scope.readfile = function () {
@@ -78,23 +78,10 @@
           $http({
             method: 'GET',
             url: SERVER_URL+'/readfile'
-          }).then(_successWindow, _error);
+          }).then(_successStage, _error);
         };
 
 
-
-
-         $scope.checkcsv = function () {
-
-      var eventSource = new EventSource("/streaming");
-     eventSource.onmessage = function (event) {
-    var container = document.getElementById("container");
-    var paragraph = document.createElement("p");
-    paragraph.innerHTML = event.data;
-    container.appendChild(paragraph);
-        };
-
-     }
           /* Private Methods */
         //HTTP GET- get all customers collection
         function _refreshPageData() {
@@ -107,13 +94,10 @@
             console.log(response.statusText);
           });
         }
-        function _successWindow(response) {
+        function _successStage(response) {
           console.log(response);
           _clearForm()
-           var $popup = $window.open("popup.html", "popup", "width=450,height=200,left=10,top=150");
-           $popup.Name = JSON.stringify(response.data);
-
-
+           $scope.csvfile = response.data;
         }
         function _success(response) {
           _refreshPageData();
@@ -140,7 +124,7 @@
 <body ng-app="customerManagement" ng-controller="customerManagementController">
 
 <div class="divTable blueTable">
-    <h1>Quarkus RxToJava Example</h1>
+    <h1>Quarkus Vert.x RX2Java Example</h1>
     <h2>Enter Customer:</h2>
     <form ng-submit="update()">
         <div class="divTableRow">
@@ -173,11 +157,15 @@
             <a ng-click="writefile()" class="myButton">Write File</a> &nbsp;
             <a ng-click="readfile()" class="myButton">Read File</a>&nbsp;&nbsp;&nbsp;
 
-            <a ng-click="checkcsv()" class="myButton">Check CSV</a></div>&nbsp;&nbsp;
+
 
 
     </div>
-
+<!--
     <div id="container"></div>
+-->
+    <div ng-app="displayfile"  />
+        <span ng-bind="csvfile"></span>
+    </div>
 </body>
 </html>

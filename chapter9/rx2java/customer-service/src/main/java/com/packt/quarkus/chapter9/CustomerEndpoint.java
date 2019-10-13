@@ -3,13 +3,9 @@ package com.packt.quarkus.chapter9;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
-
-import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 @Path("customers")
 @ApplicationScoped
@@ -17,7 +13,8 @@ import static java.util.concurrent.TimeUnit.NANOSECONDS;
 @Consumes("application/json")
 public class CustomerEndpoint {
 
-    @Inject CustomerRepository customerRepository;
+    @Inject
+    CustomerRepository customerRepository;
 
 
     @GET
@@ -53,7 +50,7 @@ public class CustomerEndpoint {
 
     @GET
     @Path("readfile")
-    @Produces("text/csv")
+    @Produces("text/plain")
     public CompletionStage<String> readFile() {
         return customerRepository.readFile();
 

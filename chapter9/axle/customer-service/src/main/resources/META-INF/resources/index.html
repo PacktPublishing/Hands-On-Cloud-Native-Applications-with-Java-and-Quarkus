@@ -58,6 +58,16 @@
             url: SERVER_URL+'?id='+customer.id
           }).then(_success, _error);
         };
+
+        //Call customer by id
+        $scope.call = function (customer) {
+
+          $http({
+            method: 'GET',
+            url: SERVER_URL+'/call/?id='+customer.id
+          }).then(_callCustomer, _error);
+        };
+
         //In case of edit customers, populate form with customer data
         $scope.edit = function (customer) {
           $scope.form.name = customer.name;
@@ -65,36 +75,20 @@
           $scope.form.id = customer.id;
         };
 
-         $scope.writefile = function () {
-
-          $http({
-            method: 'GET',
-            url: SERVER_URL+'/writefile'
-          }).then(_successWindow, _error);
-        };
-
-         $scope.readfile = function () {
-
-          $http({
-            method: 'GET',
-            url: SERVER_URL+'/readfile'
-          }).then(_successWindow, _error);
-        };
 
 
+         $scope.stats = function () {
 
+           var eventSource = new EventSource("/streaming");
+           eventSource.onmessage = function (event) {
+           var container = document.getElementById("divcontainer");
+           var paragraph = document.createElement("p");
+           paragraph.innerHTML = event.data;
+           container.appendChild(paragraph);
+           };
 
-         $scope.checkcsv = function () {
+         }
 
-      var eventSource = new EventSource("/streaming");
-     eventSource.onmessage = function (event) {
-    var container = document.getElementById("container");
-    var paragraph = document.createElement("p");
-    paragraph.innerHTML = event.data;
-    container.appendChild(paragraph);
-        };
-
-     }
           /* Private Methods */
         //HTTP GET- get all customers collection
         function _refreshPageData() {
@@ -107,14 +101,11 @@
             console.log(response.statusText);
           });
         }
-        function _successWindow(response) {
-          console.log(response);
-          _clearForm()
-           var $popup = $window.open("popup.html", "popup", "width=450,height=200,left=10,top=150");
-           $popup.Name = JSON.stringify(response.data);
 
-
+        function _callCustomer(response) {
+           window.alert(response.data);
         }
+
         function _success(response) {
           _refreshPageData();
           _clearForm()
@@ -135,12 +126,12 @@
 
 
 
-    </script>
-</head>
-<body ng-app="customerManagement" ng-controller="customerManagementController">
+  </script>
+ </head>
+ <body ng-app="customerManagement" ng-controller="customerManagementController">
 
-<div class="divTable blueTable">
-    <h1>Quarkus Vert.x Core Example</h1>
+ <div class="divTable blueTable">
+    <h1>Quarkus Vert.x Axle Example</h1>
     <h2>Enter Customer:</h2>
     <form ng-submit="update()">
         <div class="divTableRow">
@@ -163,21 +154,18 @@
         <div class="divTableRow" ng-repeat="customer in customers">
             <div class="divTableCell">{{ customer.name }}</div>
             <div class="divTableCell">{{ customer.surname }}</div>
-            <div class="divTableCell"><a ng-click="edit( customer )" class="myButton">Edit</a> <a
-                    ng-click="remove( customer )" class="myButton">Remove</a></div>
+            <div class="divTableCell"><a ng-click="edit( customer )" class="myButton">Edit</a>
+                <a ng-click="remove( customer )" class="myButton">Remove</a>
+                <a ng-click="call( customer )" class="myButton">Call</a>
+            </div>
         </div>
     </div>
     <div class="divTable blueTable">
 
         <div class="divTableCell">
-            <a ng-click="writefile()" class="myButton">Write File</a> &nbsp;
-            <a ng-click="readfile()" class="myButton">Read File</a>&nbsp;&nbsp;&nbsp;
+            <a ng-click="stats()" class="myButton">Stats</a></div>&nbsp;&nbsp;
+        </div>
+     <div id="divcontainer" style="width: 800px; height: 200px; overflow-y: scroll;" />
 
-            <a ng-click="checkcsv()" class="myButton">Check CSV</a></div>&nbsp;&nbsp;
-
-
-</div>
-
-<div id="container"></div>
 </body>
 </html>

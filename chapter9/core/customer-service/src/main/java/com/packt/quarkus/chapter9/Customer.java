@@ -1,12 +1,6 @@
 package com.packt.quarkus.chapter9;
 
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.io.StringWriter;
-@XmlRootElement
 public class Customer {
 
     private Integer id;
@@ -15,23 +9,13 @@ public class Customer {
 
     private String surname;
 
-    @Override
-    public String toString() {
-
-
-        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Customer.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            StringWriter sw = new StringWriter();
-            jaxbMarshaller.marshal(this, sw);
-            String xmlString = sw.toString();
-            return xmlString;
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-
-        return "Unable to marshall object";
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
     }
 
     public Integer getId() {

@@ -1,31 +1,30 @@
 package com.packt.quarkus.chapter9;
 
+import io.vertx.core.Vertx;
+import io.vertx.core.buffer.Buffer;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-
-
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import io.vertx.core.Vertx;
 import java.util.concurrent.CompletableFuture;
-import io.vertx.core.Future;
-import io.vertx.core.buffer.Buffer;
-
-
 import java.util.concurrent.CompletionStage;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.NANOSECONDS;
-
-import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
 
 
 @ApplicationScoped
 public class CustomerRepository {
     @Inject
     Vertx vertx;
+
+    @ConfigProperty(name = "file.path" )
+    String path;
+
     List<Customer> customerList = new ArrayList();
     int counter;
 
@@ -67,7 +66,6 @@ public class CustomerRepository {
 
     public CompletionStage<String> writeFile( ) {
 
-
         JsonArrayBuilder jsonArray = javax.json.Json.createArrayBuilder();
 
         for (Customer customer:customerList) {
@@ -83,14 +81,10 @@ public class CustomerRepository {
 
         CompletableFuture<String> future = new CompletableFuture<>();
 
-        String file = "/home/francesco/customer.json";
-
-        // Retrieve a FileSystem object from vertx instance and call the
-        // non-blocking writeFile method
-        vertx.fileSystem().writeFile(file, Buffer.buffer(array.toString()), handler -> {
+        vertx.fileSystem().writeFile(path, Buffer.buffer(array.toString()), handler -> {
             if (handler.succeeded()) {
 
-                future.complete("Written file CSV in " +file);
+                future.complete("Written JSON file in " +path);
             } else {
                 System.err.println("Error while writing in file: " + handler.cause().getMessage());
 
@@ -107,15 +101,14 @@ public class CustomerRepository {
 
         long start = System.nanoTime();
 
-        // Delay reply by 10ms
-        vertx.setTimer(10, l -> {
+        // Delay reply by 100ms
+        vertx.setTimer(100, l -> {
             // Compute elapsed time in milliseconds
             long duration = MILLISECONDS.convert(System.nanoTime() - start, NANOSECONDS);
 
-            vertx.fileSystem().readFile("/home/francesco/customer.json", ar -> {
+            vertx.fileSystem().readFile(path, ar -> {
                 if (ar.succeeded()) {
                     String response = ar.result().toString("UTF-8");
-                    System.out.println("------------>"+response);
                     future.complete(response);
                 } else {
                     future.complete("Cannot read the file: " + ar.cause().getMessage());
@@ -123,9 +116,6 @@ public class CustomerRepository {
             });
 
         });
-
-
-
 
         return future;
     }
