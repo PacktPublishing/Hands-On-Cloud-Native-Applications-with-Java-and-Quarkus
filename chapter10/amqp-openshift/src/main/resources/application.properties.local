@@ -1,0 +1,11 @@
+amqp-username=quarkus
+amqp-password=quarkus
+
+# Configure the AMQP connector to write to the `stocks`  address
+mp.messaging.outgoing.stock-quote.connector=smallrye-amqp
+mp.messaging.outgoing.stock-quote.address=stocks
+mp.messaging.outgoing.stock-quote.durable=true
+
+# Configure the AMQP connector to read from the `stocks` queue
+mp.messaging.incoming.stocks.connector=smallrye-amqp
+mp.messaging.incoming.stocks.durable=true
