@@ -6,6 +6,7 @@ An example application which REST Services to run a CRUD application.
 
 [source,shell]
 ----
+cd customer-service
 
 mvn install quarkus:dev  
 ----
