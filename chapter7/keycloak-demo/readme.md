@@ -19,7 +19,12 @@ docker run --rm  \
 docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 --name quarkus_test -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -p 5432:5432 postgres:10.5
 ```
 
-## Import the Realm quarkus-real.json from Keycloak
+## Import the Realm quarkus-realm.json from Keycloak
+
+* Log into http://localhost:8180
+
+User admin
+Password admin
 
 ## Run the application Tests
 ```
