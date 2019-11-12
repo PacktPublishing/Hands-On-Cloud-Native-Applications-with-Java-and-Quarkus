@@ -1,0 +1,58 @@
+= Quarkus Profiles Demo
+
+An example application which uses different 3 Profiles to connect to 3 different Database settings
+
+== How activate the application with the "dev" profile
+
+* Start the "Dev" Database:
+
+[source,shell]
+----
+$ ./dbdev.sh
+----
+
+* Launch the application:
+
+[source,shell]
+----
+$ mvn compile quarkus:dev
+----
+
+== How activate the application with the "prod" profile
+
+* Start the "Prod" Database:
+
+[source,shell]
+----
+$ ./dbprod.sh
+----
+
+* Package the application with the prod profile:
+
+[source,shell]
+----
+$ mvn clean package -Dquarkus.profile=prod -DskipTests=true
+----
+
+* Launch the application:
+
+[source,shell]
+----
+$ java -jar target/profiles-demo-1.0-SNAPSHOT-runner.jar
+----
+
+== How activate the application with the "test" profile
+
+* Start the "Test" Database:
+
+[source,shell]
+----
+$ ./dbtest.sh
+----
+
+* Launch the application Tests:
+
+[source,shell]
+----
+$ mvn clean install
+----
