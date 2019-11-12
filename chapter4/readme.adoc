@@ -1,4 +1,4 @@
-= Quarkus Web Socket application example
+= Quarkus Web application example
 
 An example application which uses Web Sockets and REST Services to run a CRUD application.
 
@@ -21,4 +21,7 @@ cd customer-service-fe
 mvn install quarkus:dev -Dquarkus.http.port=9080 -Ddebug=6005
 ----
 
+* Test the CRUD Service at: http://localhost:8080
+
+* Test the Web Socket Service at: http://localhost:9080
 
