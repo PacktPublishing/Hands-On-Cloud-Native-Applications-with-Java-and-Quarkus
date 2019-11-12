@@ -6,6 +6,8 @@ import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+import java.util.List;
+
 @ServerEndpoint(value="/customers", encoders = {MessageEncoder.class})
 
 
@@ -15,18 +17,12 @@ public class WebsocketEndpoint {
     CustomerRepository customerRepository;
 
     @OnMessage
-    public void addCustomer(String message, Session session) {
+    public List<Customer>  addCustomer(String message, Session session) {
         Jsonb jsonb = JsonbBuilder.create();
 
         Customer customer = jsonb.fromJson(message, Customer.class);
         customerRepository.createCustomer(customer);
-
-        try {
-            session.getBasicRemote().sendObject(customerRepository.findAll());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        return customerRepository.findAll();
     }
     @OnOpen
     public void myOnOpen(Session session) {

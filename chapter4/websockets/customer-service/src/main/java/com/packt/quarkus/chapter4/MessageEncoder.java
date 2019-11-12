@@ -27,12 +27,12 @@ public class MessageEncoder implements Encoder.Text<java.util.List<Customer>>  {
 
     @Override
     public void init(EndpointConfig config) {
-        System.out.println("Init");
+
     }
 
     @Override
     public void destroy() {
-        System.out.println("destroy");
+
     }
 
 }
