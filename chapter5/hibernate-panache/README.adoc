@@ -8,13 +8,13 @@ An example application featuring a One-To-Many relation between the table Custom
 
 [source,shell]
 ----
-$ sudo ./db.sh
+$ ./db.sh
 ----
 
 * Launch the application:
 
 [source,shell]
 ----
-$ mvn clean compile test
+$ mvn install quarkus:dev
 ----
 
