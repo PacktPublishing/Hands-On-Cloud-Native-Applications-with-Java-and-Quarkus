@@ -1,6 +1,12 @@
 # Build native application
 mvn package -Pnative -Dnative-image.docker-build=true -DskipTests=true
 
+# Create a new Quarkus project
+oc new-project quarkus-hibernate
+
+# Create a PostgreSQL application
+oc new-app -e POSTGRESQL_USER=quarkus -e POSTGRESQL_PASSWORD=quarkus -e POSTGRESQL_DATABASE=quarkusdb postgresql
+
 # Create a new Binary Build named "quarkus-hibernate"
 oc new-build --binary --name=quarkus-hibernate -l app=quarkus-hibernate
 
