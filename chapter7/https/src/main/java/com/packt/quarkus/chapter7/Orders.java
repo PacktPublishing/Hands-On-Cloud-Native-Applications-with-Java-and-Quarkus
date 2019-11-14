@@ -1,16 +1,7 @@
 package com.packt.quarkus.chapter7;
 
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.NamedQuery;
-
-import javax.persistence.JoinColumn;
-
+import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.*;
 @Entity
 @NamedQuery(name = "Orders.findAll",
         query = "SELECT o FROM Orders o WHERE o.customer.id = :customerId ORDER BY o.item")
@@ -41,6 +32,7 @@ public class Orders {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonbTransient
     public Customer customer;
 
 

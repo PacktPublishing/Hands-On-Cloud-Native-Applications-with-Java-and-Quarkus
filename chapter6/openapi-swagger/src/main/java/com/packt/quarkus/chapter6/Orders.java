@@ -3,7 +3,6 @@ package com.packt.quarkus.chapter6;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-
 @Entity
 @NamedQuery(name = "Orders.findAll",
         query = "SELECT o FROM Orders o WHERE o.customer.id = :customerId ORDER BY o.item")

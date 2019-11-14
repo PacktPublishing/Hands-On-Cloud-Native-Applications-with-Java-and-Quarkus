@@ -1,14 +1,11 @@
 package com.packt.quarkus.chapter5;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.ws.rs.WebApplicationException;
-import javax.transaction.Transactional;
-
 import io.quarkus.panache.common.Sort;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.transaction.Transactional;
+import javax.ws.rs.WebApplicationException;
+import java.util.List;
 
 @ApplicationScoped
 public class CustomerRepository {

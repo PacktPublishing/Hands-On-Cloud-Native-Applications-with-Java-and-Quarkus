@@ -9,7 +9,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import java.util.HashMap;
-
 import java.util.Random;
 
 @ApplicationScoped

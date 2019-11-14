@@ -1,9 +1,10 @@
 package com.packt.quarkus.chapter6;
 
 import org.eclipse.microprofile.health.HealthCheck;
-import org.eclipse.microprofile.health.Liveness;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.HealthCheckResponseBuilder;
+import org.eclipse.microprofile.health.Liveness;
+
 import javax.enterprise.context.ApplicationScoped;
 @Liveness
 @ApplicationScoped

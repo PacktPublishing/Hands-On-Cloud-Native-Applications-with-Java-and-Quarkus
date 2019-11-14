@@ -2,6 +2,7 @@ package com.packt.quarkus.chapter4;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
+
 import javax.json.Json;
 import javax.json.JsonObject;
 

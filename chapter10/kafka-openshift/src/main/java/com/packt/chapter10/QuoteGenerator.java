@@ -4,10 +4,10 @@ import io.reactivex.Flowable;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 /**
  * A bean producing random prices every 2 seconds.
  * The prices are written to a Kafka topic (prices). The Kafka configuration is specified in the application configuration.

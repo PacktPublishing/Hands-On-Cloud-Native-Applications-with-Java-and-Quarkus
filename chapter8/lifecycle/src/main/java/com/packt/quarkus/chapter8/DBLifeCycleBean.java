@@ -1,14 +1,15 @@
 package com.packt.quarkus.chapter8;
+
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
 import org.h2.tools.Server;
-import javax.enterprise.context.Initialized;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import java.sql.SQLException;
-import javax.enterprise.context.RequestScoped;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.Initialized;
+import javax.enterprise.event.Observes;
+import java.sql.SQLException;
 
 @ApplicationScoped
 public class DBLifeCycleBean {

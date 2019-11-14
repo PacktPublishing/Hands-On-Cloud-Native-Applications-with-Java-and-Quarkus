@@ -1,7 +1,7 @@
 package com.packt.quarkus.chapter6;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
-
 @Entity
 @NamedQueries({
         @NamedQuery(name="Orders.findAll",
@@ -35,6 +35,7 @@ public class Orders {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonbTransient
     public Customer customer;
 
 

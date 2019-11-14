@@ -1,22 +1,10 @@
 package com.packt.quarkus.chapter5;
 
-import javax.json.bind.annotation.JsonbTransient;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
+import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.*;
+import java.util.List;
 @Cacheable
 @Entity
 public class Customer extends PanacheEntityBase {

@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.ws.rs.WebApplicationException;
 import java.util.List;
-import javax.persistence.Query;
 
 
 @ApplicationScoped

@@ -1,8 +1,8 @@
 package com.packt.quarkus.chapter8;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
-
 @Cacheable
 @Entity
 @NamedQuery(name = "Customers.findAll",
@@ -57,5 +57,6 @@ public class Customer {
     }
 
     @OneToMany(mappedBy = "customer")
+    @JsonbTransient
     public List<Orders> orders;
 }

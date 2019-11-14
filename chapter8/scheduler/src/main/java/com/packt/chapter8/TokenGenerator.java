@@ -1,11 +1,12 @@
 package com.packt.chapter8;
 
 
-import java.util.UUID;
-import javax.enterprise.context.ApplicationScoped;
 import io.quarkus.scheduler.Scheduled;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.enterprise.context.ApplicationScoped;
+import java.util.UUID;
 
 @ApplicationScoped
 public class TokenGenerator {

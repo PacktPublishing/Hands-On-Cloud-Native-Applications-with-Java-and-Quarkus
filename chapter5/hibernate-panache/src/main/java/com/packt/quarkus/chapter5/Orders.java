@@ -1,16 +1,9 @@
 package com.packt.quarkus.chapter5;
 
-import javax.json.bind.annotation.JsonbTransient;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
+import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.*;
 @Entity
 public class Orders extends PanacheEntityBase {
     @Id

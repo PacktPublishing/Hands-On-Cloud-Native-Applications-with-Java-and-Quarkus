@@ -2,10 +2,10 @@ package com.packt.quarkus.chapter7;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.util.List;
 import javax.persistence.EntityManager;
-import javax.ws.rs.WebApplicationException;
 import javax.transaction.Transactional;
+import javax.ws.rs.WebApplicationException;
+import java.util.List;
 
 @ApplicationScoped
 public class CustomerRepository {

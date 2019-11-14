@@ -1,19 +1,8 @@
 package com.packt.quarkus.chapter5;
 
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.*;
 import java.util.List;
-
 @Cacheable
 @Entity
 @NamedQuery(name = "Customers.findAll",
@@ -68,5 +57,6 @@ public class Customer {
     }
 
     @OneToMany(mappedBy = "customer")
+    @JsonbTransient
     public List<Orders> orders;
 }
