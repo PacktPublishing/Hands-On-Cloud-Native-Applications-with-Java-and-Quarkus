@@ -21,5 +21,6 @@ cd customer-service-fe
 mvn install quarkus:dev -Dquarkus.http.port=9080 -Ddebug=6005
 ----
 
-You can access the REST Demo at http://localhost:8080
-You can access the Web socket Demo at http://localhost:9080
+You can access the Front-End Web Socket Service at http://localhost:9080
+You can access the Back-End REST Service at http://localhost:8080
+
