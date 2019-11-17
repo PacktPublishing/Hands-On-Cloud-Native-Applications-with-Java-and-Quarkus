@@ -1,15 +1,15 @@
-= Quarkus Web application example
+= Quarkus REST Service example
 
-An example application which REST Services to run a CRUD application.
+A basic REST Service running on Quarkus.
 
 == How to run it
 
 [source,shell]
 ----
-cd customer-service
+cd hello-rest
 
 mvn install quarkus:dev  
 ----
 
-* Test the CRUD Service at: http://localhost:8080
+* Test the available endpoints at: http://localhost:8080
 

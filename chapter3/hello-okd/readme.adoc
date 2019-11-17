@@ -1,0 +1,21 @@
+= Quarkus REST Service example
+
+A basic REST Service to demonstrate how to run a Quarkus service in a Container.
+
+== How to run it
+
+[source,shell]
+----
+cd hello-rest
+
+mvn install quarkus:dev  
+----
+
+== How to deploy on Openshift
+
+[source,shell]
+----
+./deploy-openshift.sh
+
+----
+
