@@ -11,7 +11,8 @@ docker run --rm  \
    -p 8180:8180 \
    -it jboss/keycloak \
    -b 0.0.0.0 \
-   -Djboss.http.port=8180 
+   -Djboss.http.port=8180 \
+   -Dkeycloak.profile.feature.upload_scripts=enabled
 ```
 
 ## Start Database
