@@ -8,7 +8,7 @@ oc new-project quarkus-hello-okd
 oc new-build --binary --name=quarkus-hello-okd -l app=quarkus-hello-okd
 
 # Set the dockerfilePath attribute into the Build Configuration
-oc patch bc/quarkus-hibernate -p '{"spec":{"strategy":{"dockerStrategy":{"dockerfilePath":"src/main/docker/Dockerfile.native"}}}}'
+oc patch bc/quarkus-hello-okd -p '{"spec":{"strategy":{"dockerStrategy":{"dockerfilePath":"src/main/docker/Dockerfile.native"}}}}'
 
 # Start the build, uploading content from the local folder: 
 oc start-build quarkus-hello-okd --from-dir=. --follow
