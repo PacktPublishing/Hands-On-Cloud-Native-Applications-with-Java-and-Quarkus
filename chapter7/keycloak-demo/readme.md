@@ -9,7 +9,7 @@ docker run --rm  \
    -e KEYCLOAK_USER=admin \
    -e KEYCLOAK_PASSWORD=admin \
    -p 8180:8180 \
-   -it jboss/keycloak \
+   -it quay.io/keycloak/keycloak:7.0.1 \
    -b 0.0.0.0 \
    -Djboss.http.port=8180 \
    -Dkeycloak.profile.feature.upload_scripts=enabled
