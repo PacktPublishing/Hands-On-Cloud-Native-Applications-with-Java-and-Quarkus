@@ -41,7 +41,7 @@ public class CustomerEndpoint {
         return Response.status(204).build();
     }
     @DELETE
-    public Response delete(Long customerId) {
+    public Response delete(@QueryParam("id") Long customerId) {
         customerRepository.deleteCustomer(customerId);
         return Response.status(204).build();
     }

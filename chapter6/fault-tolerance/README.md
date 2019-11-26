@@ -13,11 +13,13 @@ docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 --name qua
 
 ## Start the application
 
-The application can be started using: 
+The application can be tested with: 
 
 ```bash
-mvn compile quarkus:dev
+mvn compile test
 ```  
+
+A random Resource failure (50%) will cause an error and Open the Circuit.
 
 
 

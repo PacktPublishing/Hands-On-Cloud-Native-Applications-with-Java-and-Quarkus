@@ -39,7 +39,7 @@ public class CustomerEndpoint {
     }
 
     @DELETE
-    public Response delete(Long customerId) {
+    public Response delete(@QueryParam("id") Long customerId) {
         return customer.delete(customerId);
     }
 

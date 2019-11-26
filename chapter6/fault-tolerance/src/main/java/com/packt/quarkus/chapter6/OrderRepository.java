@@ -33,7 +33,7 @@ public class OrderRepository {
     }
     private void possibleFailure() {
         if (new Random().nextFloat() < 0.5f)
-        throw new RuntimeException("Resource failure.");
+        throw new RuntimeException("I have generated a Random Resource failure! Try again accessing the service.");
     }
     public Orders findOrderById(Long id) {
 
