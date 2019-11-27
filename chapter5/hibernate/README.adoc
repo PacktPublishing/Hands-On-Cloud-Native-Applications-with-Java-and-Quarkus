@@ -18,3 +18,10 @@ $ ./db.sh
 $ mvn install quarkus:dev
 ----
 
+* Deploy on Openshift:
+
+[source,shell]
+----
+./deploy-openshift.sh
+----
+
