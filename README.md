@@ -9,7 +9,7 @@ This is the code repository for [](), published by Packt.
 **Build high performance, Kubernetes-native Java serverless applications**
 
 ## What is this book about?
-
+Hands-On Cloud Native Applications with Java and Quarkus is a complete end-to-end development guide which will help you get hands-on experience with building Kubernetes native applications in serverless environments. You will learn how to address a wider range of distributed application architectures with this fun to use a full-stack framework.
 
 This book covers the following exciting features:
 * Build a native application using Quarkus and GraalVM
@@ -19,8 +19,9 @@ This book covers the following exciting features:
 * Learn how to get Camel and Infinispan working in native mode
 * Deploy an application in a Kubernetes-native environment using Minishift
 * Discover Reactive Programming with Vert.x
-* If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1838821473) today!
-* 
+
+If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1838821473) today!
+
 * <a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
 alt="https://www.packtpub.com/" border="5" /></a>
 
