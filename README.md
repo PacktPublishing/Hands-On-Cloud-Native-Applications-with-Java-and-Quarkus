@@ -42,8 +42,10 @@ The book is for Java developers and software architects?who are interested in le
 
 With the following software and hardware list you can run all code files present in the book (Chapter 1-).
 ### Software and Hardware List
-| Chapter | Software required | OS required |
-| -------- | ------------------------------------ | ----------------------------------- |
+| No | Software required | OS required |
+| 1 | GRAAL_VM 19.2.1 | Linux/MacOS/Windows |
+| 2 | Docker 1.13.1 or newer | Linux/MacOS/Windows |
+| 3 | Minishift | Linux/MacOS/Windows |
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781838821470_ColorImages.pdf).
 
