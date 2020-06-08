@@ -2,7 +2,7 @@
 Hands-On Cloud-Native Applications with Java and Quarkus, published by Packt
 # 
 
-<a href=""><img src="" alt="" height="256px" align="right"></a>
+<a href=""><img src="https://www.packtpub.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/9/7/9781838821470-original.jpeg" alt="" height="256px" align="right"></a>
 
 This is the code repository for [](), published by Packt.
 
@@ -22,7 +22,7 @@ This book covers the following exciting features:
 
 If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1838821473) today!
 
-* <a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
+<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
 alt="https://www.packtpub.com/" border="5" /></a>
 
 ## Instructions and Navigations
@@ -42,7 +42,8 @@ The book is for Java developers and software architects?who are interested in le
 
 With the following software and hardware list you can run all code files present in the book (Chapter 1-).
 ### Software and Hardware List
-| No | Software required | OS required |
+| Chapter | Software required | OS required |
+| -------- | ------------------------------------ | ----------------------------------- |
 | 1 | GRAAL_VM 19.2.1 | Linux/MacOS/Windows |
 | 2 | Docker 1.13.1 or newer | Linux/MacOS/Windows |
 | 3 | Minishift | Linux/MacOS/Windows |
