@@ -2,9 +2,9 @@
 Hands-On Cloud-Native Applications with Java and Quarkus, published by Packt
 # 
 
-<a href=""><img src="https://www.packtpub.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/9/7/9781838821470-original.jpeg" alt="" height="256px" align="right"></a>
+<a href=""><img src="https://www.packtpub.com/media/catalog/product/cache/4cdce5a811acc0d2926d7f857dceb83b/9/7/9781838821470-original.jpeg" alt="" height="256px" align="right"></a>
 
-This is the code repository for [](), published by Packt.
+This is the code repository for [Hands-On Cloud-Native Applications with Java and Quarkus](https://www.packtpub.com/cloud-networking/hands-on-cloud-native-applications-with-java-and-quarkus?utm_source=github&utm_medium=repository&utm_campaign=9781838821470), published by Packt.
 
 **Build high performance, Kubernetes-native Java serverless applications**
 
