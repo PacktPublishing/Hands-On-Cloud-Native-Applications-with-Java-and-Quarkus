@@ -46,7 +46,7 @@ function toJSONString() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    var form = document.getElementById("test");
+    var form = document.getElementById("form1");
     var output = document.getElementById("output");
     form.addEventListener("submit", function(e) {
         e.preventDefault();
